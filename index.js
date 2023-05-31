@@ -42,9 +42,15 @@ function dosyaAdiniBul(dosyaYolu) {
 */
 
 function ortalamaBul(sayiArrayi) {
-  const sayilarToplami = sayiArrayi.reduce ((a, b) => a+b)
-  let sayilarOrt = sayilarToplami / sayiArrayi.length
-  return sayilarOrt
+
+  if (sayiArrayi.length === 0){
+    return null; }
+    else {
+      const sayilarToplami = sayiArrayi.reduce ((a, b) => a+b)
+      let sayilarOrt = sayilarToplami / sayiArrayi.length
+      return sayilarOrt
+    }
+  
 }
 
 console.log("ortalama: " , ortalamaBul([7,5]))
@@ -71,10 +77,14 @@ console.log("ortalama: " , ortalamaBul([7,5]))
 
 function ortalamadanBuyukleriBul(sayiArrayi, ortalamaFn) {
 
+  if (sayiArrayi.length === 0) {
+    return null ;
+  } else {
+
  const ortFn = ortalamaFn(sayiArrayi);
  let ortUstu = sayiArrayi.filter((sayi) => sayi >= ortFn);
        return ortUstu;
- 
+  }
 }
 
   console.log("ortalamadan büyükler: " , ortalamadanBuyukleriBul([5,8,23,48], ortalamaBul ))
